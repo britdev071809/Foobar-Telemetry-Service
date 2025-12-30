@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TelemetryPayloadSchema",
+    "description": "Schema for validating IoT telemetry payloads",
+    "type": "object",
+    "required": ["device_id", "timestamp", "sensor_values"],
+    "properties": {
+        "device_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$"
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "sensor_values": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "number"
+            }
+        }
+    },
+    "additionalProperties": false
+}
